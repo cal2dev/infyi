@@ -1,0 +1,8 @@
+{
+    "require": {
+        "doctrine/orm": "*"
+    },
+    "config": {
+        "vendor-dir": "application/vendor"
+    }
+}

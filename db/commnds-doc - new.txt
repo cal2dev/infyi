@@ -1,0 +1,24 @@
+
+----------------------------------------------------
+Command to generate entities metadata class
+----------------------------------------------------
+"application/vendor/bin/doctrine.bat" orm:convert-mapping --from-database xml models/Mappings
+
+
+----------------------------------------------------
+Command to generate entities methods
+----------------------------------------------------
+
+"application/vendor/bin/doctrine.bat" orm:generate-entities models/Entities/
+"application/vendor/bin/doctrine.bat" orm:generate-entities --update-entities models/Entities/
+"application/vendor/bin/doctrine.bat" orm:generate-entities --regenerate-entities -- models/Entities/
+
+
+----------------------------------------------------
+other
+----------------------------------------------------
+orm:validate-schema
+
+"application/vendor/bin/doctrine.bat" 
+"application/vendor/bin/doctrine.bat" orm:info
+"application/vendor/bin/doctrine.bat" orm:convert-mapping --from-database --namespace='Entities\' xml mapping/xml

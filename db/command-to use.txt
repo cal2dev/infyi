@@ -1,0 +1,7 @@
+These commands need to be used 
+================
+"application/vendor/bin/doctrine.bat" orm:convert-mapping --from-database --namespace=Entities. php models/Mappings/temp
+
+Then copy the temp mapping file to map folder. Then run below
+
+"application/vendor/bin/doctrine.bat" orm:generate-entities models/Entities/temp
