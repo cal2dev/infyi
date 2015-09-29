@@ -1,0 +1,15 @@
+These commands need to be used 
+================
+First change mapping files-
+
+Then run belo command-
+"application/vendor/bin/doctrine.bat" orm:generate-entities models/Entities
+"application/vendor/bin/doctrine.bat" orm:generate-entities  --generate-annotations=1 models
+
+then create command-
+
+"application/vendor/bin/doctrine.bat" orm:schema-tool:create
+
+"application/vendor/bin/doctrine.bat" orm:schema-tool:drop --force
+
+"application/vendor/bin/doctrine.bat" orm:schema-tool:update --force

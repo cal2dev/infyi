@@ -4,12 +4,12 @@ use Doctrine\ORM\Mapping\ClassMetadataInfo;
 
 $metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
 $metadata->setPrimaryTable(array(
-   'name' => 'app_user_register',
+   'name' => 'user_register',
   ));
 $metadata->setChangeTrackingPolicy(ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT);
 $metadata->mapField(array(
-   'fieldName' => 'regId',
-   'columnName' => 'Reg_id',
+   'fieldName' => 'registerId',
+   'columnName' => 'register_id',
    'type' => 'integer',
    'nullable' => false,
    'options' => 
@@ -19,8 +19,8 @@ $metadata->mapField(array(
    'id' => true,
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regUniqueId',
-   'columnName' => 'Reg_unique_id',
+   'fieldName' => 'uniqueId',
+   'columnName' => 'unique_id',
    'type' => 'string',
    'nullable' => true,
    'length' => 120,
@@ -30,8 +30,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regRecordhash',
-   'columnName' => 'Reg_recordHash',
+   'fieldName' => 'recordHash',
+   'columnName' => 'record_hash',
    'type' => 'string',
    'nullable' => true,
    'length' => 120,
@@ -41,8 +41,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regUserName',
-   'columnName' => 'Reg_user_name',
+   'fieldName' => 'userName',
+   'columnName' => 'user_name',
    'type' => 'string',
    'nullable' => true,
    'length' => 120,
@@ -52,8 +52,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regEmailId',
-   'columnName' => 'Reg_email_id',
+   'fieldName' => 'emailId',
+   'columnName' => 'email_id',
    'type' => 'string',
    'nullable' => false,
    'length' => 120,
@@ -63,8 +63,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regPassword',
-   'columnName' => 'Reg_password',
+   'fieldName' => 'password',
+   'columnName' => 'password',
    'type' => 'string',
    'nullable' => false,
    'length' => 120,
@@ -74,8 +74,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regFirstname',
-   'columnName' => 'Reg_firstname',
+   'fieldName' => 'firstname',
+   'columnName' => 'firstname',
    'type' => 'string',
    'nullable' => false,
    'length' => 100,
@@ -85,8 +85,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regLastname',
-   'columnName' => 'Reg_lastname',
+   'fieldName' => 'lastname',
+   'columnName' => 'lastname',
    'type' => 'string',
    'nullable' => false,
    'length' => 100,
@@ -97,7 +97,7 @@ $metadata->mapField(array(
   ));
 $metadata->mapField(array(
    'fieldName' => 'regActive',
-   'columnName' => 'Reg_active',
+   'columnName' => 'reg_active',
    'type' => 'boolean',
    'nullable' => false,
    'options' => 
@@ -107,7 +107,7 @@ $metadata->mapField(array(
   ));
 $metadata->mapField(array(
    'fieldName' => 'regStatus',
-   'columnName' => 'Reg_status',
+   'columnName' => 'reg_status',
    'type' => 'integer',
    'nullable' => false,
    'options' => 
@@ -116,19 +116,10 @@ $metadata->mapField(array(
    'default' => '0',
    ),
   ));
-$metadata->mapField(array(
-   'fieldName' => 'regUnlogincount',
-   'columnName' => 'Reg_unlogincount',
-   'type' => 'integer',
-   'nullable' => true,
-   'options' => 
-   array(
-   'unsigned' => false,
-   ),
-  ));
+
 $metadata->mapField(array(
    'fieldName' => 'regNow',
-   'columnName' => 'Reg_now',
+   'columnName' => 'reg_now',
    'type' => 'string',
    'nullable' => true,
    'length' => 100,
@@ -138,8 +129,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regCstamp',
-   'columnName' => 'Reg_cstamp',
+   'fieldName' => 'cstamp',
+   'columnName' => 'cstamp',
    'type' => 'datetime',
    'nullable' => false,
    'options' => 
@@ -148,8 +139,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regUstamp',
-   'columnName' => 'Reg_ustamp',
+   'fieldName' => 'ustamp',
+   'columnName' => 'ustamp',
    'type' => 'datetime',
    'nullable' => false,
    'options' => 

@@ -4,14 +4,14 @@ use Doctrine\ORM\Mapping\ClassMetadataInfo;
 
 $metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
 $metadata->setPrimaryTable(array(
-   'name' => 'app_user_data',
+   'name' => 'user_data',
    'indexes' => 
    array(
-   'Reg_id' => 
+   'data_id' => 
    array(
     'columns' => 
     array(
-    0 => 'Reg_id',
+    0 => 'data_id',
     ),
    ),
    ),
@@ -19,7 +19,7 @@ $metadata->setPrimaryTable(array(
 $metadata->setChangeTrackingPolicy(ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT);
 $metadata->mapField(array(
    'fieldName' => 'dataId',
-   'columnName' => 'Data_id',
+   'columnName' => 'data_id',
    'type' => 'integer',
    'nullable' => false,
    'options' => 
@@ -29,8 +29,8 @@ $metadata->mapField(array(
    'id' => true,
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regRecordhash',
-   'columnName' => 'Reg_recordHash',
+   'fieldName' => 'recordHash',
+   'columnName' => 'record_hash',
    'type' => 'string',
    'nullable' => true,
    'length' => 120,
@@ -40,8 +40,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regUniqueId',
-   'columnName' => 'Reg_unique_id',
+   'fieldName' => 'uniqueId',
+   'columnName' => 'unique_id',
    'type' => 'string',
    'nullable' => true,
    'length' => 120,
@@ -51,8 +51,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regUserName',
-   'columnName' => 'Reg_user_name',
+   'fieldName' => 'userName',
+   'columnName' => 'user_name',
    'type' => 'string',
    'nullable' => true,
    'length' => 120,
@@ -62,8 +62,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regEmailId',
-   'columnName' => 'Reg_email_id',
+   'fieldName' => 'emailId',
+   'columnName' => 'email_id',
    'type' => 'string',
    'nullable' => true,
    'length' => 120,
@@ -73,8 +73,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'regPassword',
-   'columnName' => 'Reg_password',
+   'fieldName' => 'password',
+   'columnName' => 'password',
    'type' => 'string',
    'nullable' => true,
    'length' => 120,
@@ -84,8 +84,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'dataFirstname',
-   'columnName' => 'Data_firstname',
+   'fieldName' => 'firstname',
+   'columnName' => 'firstname',
    'type' => 'string',
    'nullable' => true,
    'length' => 100,
@@ -95,8 +95,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'dataLastname',
-   'columnName' => 'Data_lastname',
+   'fieldName' => 'lastname',
+   'columnName' => 'lastname',
    'type' => 'string',
    'nullable' => true,
    'length' => 100,
@@ -105,20 +105,10 @@ $metadata->mapField(array(
    'fixed' => false,
    ),
   ));
+
 $metadata->mapField(array(
-   'fieldName' => 'dataImage',
-   'columnName' => 'Data_image',
-   'type' => 'text',
-   'nullable' => true,
-   'length' => 65535,
-   'options' => 
-   array(
-   'fixed' => false,
-   ),
-  ));
-$metadata->mapField(array(
-   'fieldName' => 'dataGender',
-   'columnName' => 'Data_gender',
+   'fieldName' => 'gender',
+   'columnName' => 'gender',
    'type' => 'string',
    'nullable' => true,
    'length' => 20,
@@ -128,8 +118,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'dataBirthday',
-   'columnName' => 'Data_birthday',
+   'fieldName' => 'dob',
+   'columnName' => 'dob',
    'type' => 'string',
    'nullable' => true,
    'length' => 100,
@@ -139,8 +129,20 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'dataLocation',
-   'columnName' => 'Data_location',
+   'fieldName' => 'location',
+   'columnName' => 'location',
+   'type' => 'string',
+   'nullable' => true,
+   'length' => 100,
+   'options' => 
+   array(
+   'fixed' => false,
+   ),
+  ));
+
+$metadata->mapField(array(
+   'fieldName' => 'timezone',
+   'columnName' => 'timezone',
    'type' => 'string',
    'nullable' => true,
    'length' => 100,
@@ -150,41 +152,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'dataHometown',
-   'columnName' => 'Data_hometown',
-   'type' => 'string',
-   'nullable' => true,
-   'length' => 100,
-   'options' => 
-   array(
-   'fixed' => false,
-   ),
-  ));
-$metadata->mapField(array(
-   'fieldName' => 'dataRelationship',
-   'columnName' => 'Data_relationship',
-   'type' => 'string',
-   'nullable' => true,
-   'length' => 100,
-   'options' => 
-   array(
-   'fixed' => false,
-   ),
-  ));
-$metadata->mapField(array(
-   'fieldName' => 'dataTimezone',
-   'columnName' => 'Data_timezone',
-   'type' => 'string',
-   'nullable' => true,
-   'length' => 100,
-   'options' => 
-   array(
-   'fixed' => false,
-   ),
-  ));
-$metadata->mapField(array(
-   'fieldName' => 'dataCstamp',
-   'columnName' => 'Data_cstamp',
+   'fieldName' => 'cstamp',
+   'columnName' => 'cstamp',
    'type' => 'datetime',
    'nullable' => false,
    'options' => 
@@ -193,8 +162,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'dataUstamp',
-   'columnName' => 'Data_ustamp',
+   'fieldName' => 'ustamp',
+   'columnName' => 'ustamp',
    'type' => 'datetime',
    'nullable' => false,
    'options' => 
@@ -204,21 +173,18 @@ $metadata->mapField(array(
   ));
 $metadata->setIdGeneratorType(ClassMetadataInfo::GENERATOR_TYPE_IDENTITY);
 $metadata->mapOneToOne(array(
-   'fieldName' => 'reg',
-   'targetEntity' => 'Entities.AppUserRegister',
+   'fieldName' => 'register',
+   'targetEntity' => 'UserRegister',
    'cascade' => 
    array(
    ),
    'fetch' => 2,
    'mappedBy' => NULL,
    'inversedBy' => NULL,
-   'joinColumns' => 
-   array(
-   0 => 
-   array(
-    'name' => 'Reg_id',
-    'referencedColumnName' => 'Reg_id',
-   ),
-   ),
+	'nullable' => false,
+   'joinColumns' => array( 0 => array( 'name' => 'register_id',
+									    'referencedColumnName' => 'register_id',
+									   ),
+   						),
    'orphanRemoval' => false,
   ));
