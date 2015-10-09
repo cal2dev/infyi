@@ -409,7 +409,7 @@ class UserRegister
      Manual code for mapping
      /**************************/
     
-    public function addUserData(AppUserdata $userData)
+    public function addUserData(Userdata $userData)
     {
     	$userData->setRegister($this); // synchronously updating inverse side
     }

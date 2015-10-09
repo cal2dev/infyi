@@ -84,7 +84,7 @@ class Start_model extends CI_Model  {
        $rg->setPassword($data['password']);
        $rg->setFirstname($data['firstName']);
        $rg->setLastname($data['lastName']);
-       $rg->setNow($data['now']);
+       $rg->setRegNow($data['now']);
        
        $rd = new Entities\Userdata();
        $rd->setUniqueId($data['uniqueId']);
