@@ -1,5 +1,8 @@
 These commands need to be used 
 ================
+First drop databse-
+"application/vendor/bin/doctrine.bat" orm:schema-tool:drop --force
+
 First change mapping files-
 
 Then run belo command-
