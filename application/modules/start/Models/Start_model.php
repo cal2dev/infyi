@@ -101,7 +101,7 @@ class Start_model extends CI_Model  {
             $this->em->persist($rg);
           	$this->em->persist($rd);
             $this->em->flush();
-            $id=$rg->getId();
+            $id=$rg->getRegisterId();
         }
         catch(Exception $err){
             die($err->getMessage());
@@ -162,7 +162,7 @@ class Start_model extends CI_Model  {
    	$sess=session_id();
    	$u_data = $this->em->getRepository('Entities\LoginData')->findOneBy(array('sessId' => $sess));
    	if($u_data){
-	   	$u_data->setLogdRemark('logging out');
+	   	$u_data->setRemark('logging out');
 	   	
 	   	try {
 	   		//save to database

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <base href="<?php echo base_url()?>">
-    <title>App</title>
+    <title>Infyi</title>
     <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,600,400italic' rel='stylesheet' type='text/css'>
     <!--------------------------------------------------- LIBs ---------------------------------------------------->
 

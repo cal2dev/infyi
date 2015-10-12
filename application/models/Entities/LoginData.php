@@ -54,14 +54,14 @@ class LoginData
      *
      * @ORM\Column(name="cstamp", type="datetime", nullable=false)
      */
-    private $cstamp = 'CURRENT_TIMESTAMP';
+    private $cstamp ;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="ustamp", type="datetime", nullable=false)
      */
-    private $ustamp = '0000-00-00 00:00:00';
+    private $ustamp ;
 
     /**
      * @var string
@@ -70,7 +70,10 @@ class LoginData
      */
     private $remark;
 
-
+    public function __construct() {
+    	$this->ustamp  = new \DateTime();
+    	$this->cstamp  = new \DateTime();
+    }
     /**
      * Get loginDataId
      *

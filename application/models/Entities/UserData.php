@@ -103,14 +103,14 @@ class UserData
      *
      * @ORM\Column(name="cstamp", type="datetime", nullable=false)
      */
-    private $cstamp = 'CURRENT_TIMESTAMP';
+    private $cstamp ;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="ustamp", type="datetime", nullable=false)
      */
-    private $ustamp = 'CURRENT_TIMESTAMP';
+    private $ustamp ;
 
     /**
      * @var \Entities\UserRegister
@@ -122,7 +122,10 @@ class UserData
      */
     private $register;
 
-
+    public function __construct() {
+    	$this->ustamp  = new \DateTime();
+    	$this->cstamp  = new \DateTime();
+    }
     /**
      * Get dataId
      *
