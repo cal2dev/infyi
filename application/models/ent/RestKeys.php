@@ -2,38 +2,57 @@
 
 namespace Entities;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * RestKeys
+ *
+ * @ORM\Table(name="rest_keys")
+ * @ORM\Entity
  */
 class RestKeys
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="key_name", type="string", length=100, nullable=false)
      */
     private $keyName;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="key", type="string", length=40, nullable=false)
      */
     private $key;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="level", type="integer", nullable=false)
      */
     private $level;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="ignore_limits", type="boolean", nullable=false)
      */
     private $ignoreLimits = '0';
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="date_created", type="integer", nullable=false)
      */
     private $dateCreated;
 
@@ -58,7 +77,7 @@ class RestKeys
     public function setKeyName($keyName)
     {
         $this->keyName = $keyName;
-    
+
         return $this;
     }
 
@@ -82,7 +101,7 @@ class RestKeys
     public function setKey($key)
     {
         $this->key = $key;
-    
+
         return $this;
     }
 
@@ -106,7 +125,7 @@ class RestKeys
     public function setLevel($level)
     {
         $this->level = $level;
-    
+
         return $this;
     }
 
@@ -130,7 +149,7 @@ class RestKeys
     public function setIgnoreLimits($ignoreLimits)
     {
         $this->ignoreLimits = $ignoreLimits;
-    
+
         return $this;
     }
 
@@ -154,7 +173,7 @@ class RestKeys
     public function setDateCreated($dateCreated)
     {
         $this->dateCreated = $dateCreated;
-    
+
         return $this;
     }
 

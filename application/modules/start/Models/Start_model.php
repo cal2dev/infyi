@@ -79,7 +79,7 @@ class Start_model extends CI_Model  {
 	   $rg = new Entities\UserRegister();
        $rg->setEmailId($data['email']);
        $rg->setUniqueId($data['uniqueId']);
-       $rg->setRecordhash($data['record_hash']);
+       $rg->setUserHash($data['record_hash']);
        $rg->setUserName($data['email']);
        $rg->setPassword($data['password']);
        $rg->setFirstname($data['firstName']);
@@ -88,7 +88,7 @@ class Start_model extends CI_Model  {
        
        $rd = new Entities\Userdata();
        $rd->setUniqueId($data['uniqueId']);
-       $rd->setRecordhash($data['record_hash']);
+       $rd->setUserHash($data['record_hash']);
        $rd->setUserName($data['email']);
        $rd->setEmailId($data['email']); 
        $rd->setPassword($data['password']);
@@ -117,8 +117,8 @@ class Start_model extends CI_Model  {
    
    function create_login(Entities\UserData $sdata){
    	$uqi=$sdata->getUniqueId();
-   	$reH=$sdata->getRecordhash();
-   	$dId=$sdata->getDataId();
+   	$reH=$sdata->getUserHash();
+   	$dId=$sdata->getUserDataId();
    	
    	$st=new stdClass();
    	$st->uqi=$uqi;
@@ -131,8 +131,8 @@ class Start_model extends CI_Model  {
    	$COOKIE_EXPIRY_IN_DAYS = COOKIE_EXPIRY_IN_DAYS;
    	
    	$ld = new Entities\LoginData();
-   	$ld->setDataId($dId);
-   	$ld->setRecordhash($reH);
+   	$ld->setUserDataId($dId);
+   	$ld->setUserHash($reH);
    	$ld->setCookieHash($uchash);
    	
    	//print_r($sdata);exit;

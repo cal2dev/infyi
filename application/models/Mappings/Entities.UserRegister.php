@@ -30,8 +30,8 @@ $metadata->mapField(array(
    ),
   ));
 $metadata->mapField(array(
-   'fieldName' => 'recordHash',
-   'columnName' => 'record_hash',
+   'fieldName' => 'userHash',
+   'columnName' => 'user_hash',
    'type' => 'string',
    'nullable' => true,
    'length' => 120,
@@ -135,7 +135,7 @@ $metadata->mapField(array(
    'nullable' => false,
    'options' => 
    array(
-   'default' => 'CURRENT_TIMESTAMP',
+ //  'default' => 'CURRENT_TIMESTAMP',
    ),
   ));
 $metadata->mapField(array(
@@ -145,7 +145,7 @@ $metadata->mapField(array(
    'nullable' => false,
    'options' => 
    array(
-   'default' => 'CURRENT_TIMESTAMP',
+ //  'default' => 'CURRENT_TIMESTAMP',
    ),
   ));
 $metadata->setIdGeneratorType(ClassMetadataInfo::GENERATOR_TYPE_IDENTITY);

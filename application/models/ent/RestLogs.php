@@ -2,58 +2,85 @@
 
 namespace Entities;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * RestLogs
+ *
+ * @ORM\Table(name="rest_logs")
+ * @ORM\Entity
  */
 class RestLogs
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="uri", type="string", length=255, nullable=false)
      */
     private $uri;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="method", type="string", length=6, nullable=false)
      */
     private $method;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="params", type="text", length=65535, nullable=true)
      */
     private $params;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="api_key", type="string", length=40, nullable=false)
      */
     private $apiKey;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="ip_address", type="string", length=45, nullable=false)
      */
     private $ipAddress;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="time", type="datetime", nullable=false)
      */
     private $time = 'CURRENT_TIMESTAMP';
 
     /**
      * @var float
+     *
+     * @ORM\Column(name="rtime", type="float", precision=10, scale=0, nullable=true)
      */
     private $rtime;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="authorized", type="string", length=1, nullable=false)
      */
     private $authorized;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="response_code", type="smallint", nullable=false)
      */
     private $responseCode;
 
@@ -78,7 +105,7 @@ class RestLogs
     public function setUri($uri)
     {
         $this->uri = $uri;
-    
+
         return $this;
     }
 
@@ -102,7 +129,7 @@ class RestLogs
     public function setMethod($method)
     {
         $this->method = $method;
-    
+
         return $this;
     }
 
@@ -126,7 +153,7 @@ class RestLogs
     public function setParams($params)
     {
         $this->params = $params;
-    
+
         return $this;
     }
 
@@ -150,7 +177,7 @@ class RestLogs
     public function setApiKey($apiKey)
     {
         $this->apiKey = $apiKey;
-    
+
         return $this;
     }
 
@@ -174,7 +201,7 @@ class RestLogs
     public function setIpAddress($ipAddress)
     {
         $this->ipAddress = $ipAddress;
-    
+
         return $this;
     }
 
@@ -198,7 +225,7 @@ class RestLogs
     public function setTime($time)
     {
         $this->time = $time;
-    
+
         return $this;
     }
 
@@ -222,7 +249,7 @@ class RestLogs
     public function setRtime($rtime)
     {
         $this->rtime = $rtime;
-    
+
         return $this;
     }
 
@@ -246,7 +273,7 @@ class RestLogs
     public function setAuthorized($authorized)
     {
         $this->authorized = $authorized;
-    
+
         return $this;
     }
 
@@ -270,7 +297,7 @@ class RestLogs
     public function setResponseCode($responseCode)
     {
         $this->responseCode = $responseCode;
-    
+
         return $this;
     }
 

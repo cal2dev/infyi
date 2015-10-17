@@ -2,82 +2,113 @@
 
 namespace Entities;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * UserRegister
+ *
+ * @ORM\Table(name="user_register")
+ * @ORM\Entity
  */
 class UserRegister
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="register_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $registerId;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="unique_id", type="string", length=120, nullable=true)
      */
     private $uniqueId;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="record_hash", type="string", length=120, nullable=true)
      */
-    private $userHash;
+    private $recordHash;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="user_name", type="string", length=120, nullable=true)
      */
     private $userName;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="email_id", type="string", length=120, nullable=false)
      */
     private $emailId;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=120, nullable=false)
      */
     private $password;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=100, nullable=false)
      */
     private $firstname;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=100, nullable=false)
      */
     private $lastname;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="reg_active", type="boolean", nullable=false)
      */
     private $regActive = '0';
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="reg_status", type="integer", nullable=false)
      */
     private $regStatus = '0';
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="reg_now", type="string", length=100, nullable=true)
      */
     private $regNow;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="cstamp", type="datetime", nullable=false)
      */
-    private $cstamp;
+    private $cstamp ;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="ustamp", type="datetime", nullable=false)
      */
-    private $ustamp;
+    private $ustamp ;
 
-
-	public function __construct() {
+    public function __construct() {
     	$this->ustamp  = new \DateTime();
     	$this->cstamp  = new \DateTime();
     }
-	
     /**
      * Get registerId
      *
@@ -98,7 +129,7 @@ class UserRegister
     public function setUniqueId($uniqueId)
     {
         $this->uniqueId = $uniqueId;
-    
+
         return $this;
     }
 
@@ -113,27 +144,27 @@ class UserRegister
     }
 
     /**
-     * Set userHash
+     * Set recordHash
      *
-     * @param string $userHash
+     * @param string $recordHash
      *
      * @return UserRegister
      */
-    public function setUserHash($userHash)
+    public function setRecordHash($recordHash)
     {
-        $this->userHash = $userHash;
-    
+        $this->recordHash = $recordHash;
+
         return $this;
     }
 
     /**
-     * Get userHash
+     * Get recordHash
      *
      * @return string
      */
-    public function getUserHash()
+    public function getRecordHash()
     {
-        return $this->userHash;
+        return $this->recordHash;
     }
 
     /**
@@ -146,7 +177,7 @@ class UserRegister
     public function setUserName($userName)
     {
         $this->userName = $userName;
-    
+
         return $this;
     }
 
@@ -170,7 +201,7 @@ class UserRegister
     public function setEmailId($emailId)
     {
         $this->emailId = $emailId;
-    
+
         return $this;
     }
 
@@ -194,7 +225,7 @@ class UserRegister
     public function setPassword($password)
     {
         $this->password = $password;
-    
+
         return $this;
     }
 
@@ -218,7 +249,7 @@ class UserRegister
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
-    
+
         return $this;
     }
 
@@ -242,7 +273,7 @@ class UserRegister
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
-    
+
         return $this;
     }
 
@@ -266,7 +297,7 @@ class UserRegister
     public function setRegActive($regActive)
     {
         $this->regActive = $regActive;
-    
+
         return $this;
     }
 
@@ -290,7 +321,7 @@ class UserRegister
     public function setRegStatus($regStatus)
     {
         $this->regStatus = $regStatus;
-    
+
         return $this;
     }
 
@@ -314,7 +345,7 @@ class UserRegister
     public function setRegNow($regNow)
     {
         $this->regNow = $regNow;
-    
+
         return $this;
     }
 
@@ -338,7 +369,7 @@ class UserRegister
     public function setCstamp($cstamp)
     {
         $this->cstamp = $cstamp;
-    
+
         return $this;
     }
 
@@ -362,7 +393,7 @@ class UserRegister
     public function setUstamp($ustamp)
     {
         $this->ustamp = $ustamp;
-    
+
         return $this;
     }
 
@@ -375,8 +406,9 @@ class UserRegister
     {
         return $this->ustamp;
     }
-	
-	 /***************************
+    
+
+    /***************************
      Manual code for mapping
      /**************************/
     
@@ -384,5 +416,6 @@ class UserRegister
     {
     	$userData->setRegister($this); // synchronously updating inverse side
     }
+    
 }
 

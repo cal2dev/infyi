@@ -2,31 +2,45 @@
 
 namespace Entities;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Sessions
+ *
+ * @ORM\Table(name="app_sessions", indexes={@ORM\Index(name="ci_sessions_timestamp", columns={"timestamp"})})
+ * @ORM\Entity
  */
 class Sessions
 {
     /**
      * @var string
+     *
+     * @ORM\Column(name="id", type="string", length=40, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="ip_address", type="string", length=45, nullable=false)
      */
     private $ipAddress;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="timestamp", type="integer", nullable=false)
      */
     private $timestamp = '0';
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="data", type="blob", length=65535, nullable=false)
      */
     private $data;
-
 
 
     /**
@@ -49,7 +63,7 @@ class Sessions
     public function setIpAddress($ipAddress)
     {
         $this->ipAddress = $ipAddress;
-    
+
         return $this;
     }
 
@@ -73,7 +87,7 @@ class Sessions
     public function setTimestamp($timestamp)
     {
         $this->timestamp = $timestamp;
-    
+
         return $this;
     }
 
@@ -97,7 +111,7 @@ class Sessions
     public function setData($data)
     {
         $this->data = $data;
-    
+
         return $this;
     }
 

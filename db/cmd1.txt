@@ -6,8 +6,11 @@ First drop databse-
 First change mapping files-
 
 Then run belo command-
+"application/vendor/bin/doctrine.bat" orm:generate-entities  --generate-annotations=1 --filter=Entities.LoginData models
+
 "application/vendor/bin/doctrine.bat" orm:generate-entities models/Entities
 "application/vendor/bin/doctrine.bat" orm:generate-entities  --generate-annotations=1 models
+"application/vendor/bin/doctrine.bat" orm:generate-entities  --help
 
 then create command-
 

@@ -2,57 +2,78 @@
 
 namespace Entities;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * LoginData
+ *
+ * @ORM\Table(name="login_data")
+ * @ORM\Entity
  */
 class LoginData
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="login_data_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $loginDataId;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="data_id", type="integer", nullable=false)
      */
-    private $UserDataId;
+    private $dataId;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="record_hash", type="string", length=120, nullable=false)
      */
-    private $UserHash;
+    private $recordhash;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="cookie_hash", type="string", length=120, nullable=false)
      */
     private $cookieHash;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="sess_id", type="string", length=120, nullable=true)
      */
     private $sessId;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="cstamp", type="datetime", nullable=false)
      */
-    private $cstamp;
+    private $cstamp ;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="ustamp", type="datetime", nullable=false)
      */
-    private $ustamp;
+    private $ustamp ;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="remark", type="string", length=200, nullable=true)
      */
     private $remark;
 
-
-	public function __construct() {
+    public function __construct() {
     	$this->ustamp  = new \DateTime();
     	$this->cstamp  = new \DateTime();
     }
-	
     /**
      * Get loginDataId
      *
@@ -64,51 +85,51 @@ class LoginData
     }
 
     /**
-     * Set userDataId
+     * Set dataId
      *
-     * @param integer $userDataId
+     * @param integer $dataId
      *
      * @return LoginData
      */
-    public function setUserDataId($userDataId)
+    public function setDataId($dataId)
     {
-        $this->UserDataId = $userDataId;
-    
+        $this->dataId = $dataId;
+
         return $this;
     }
 
     /**
-     * Get userDataId
+     * Get dataId
      *
      * @return integer
      */
-    public function getUserDataId()
+    public function getDataId()
     {
-        return $this->UserDataId;
+        return $this->dataId;
     }
 
     /**
-     * Set userHash
+     * Set recordhash
      *
-     * @param string $userHash
+     * @param string $recordhash
      *
      * @return LoginData
      */
-    public function setUserHash($userHash)
+    public function setRecordhash($recordhash)
     {
-        $this->UserHash = $userHash;
-    
+        $this->recordhash = $recordhash;
+
         return $this;
     }
 
     /**
-     * Get userHash
+     * Get recordhash
      *
      * @return string
      */
-    public function getUserHash()
+    public function getRecordhash()
     {
-        return $this->UserHash;
+        return $this->recordhash;
     }
 
     /**
@@ -121,7 +142,7 @@ class LoginData
     public function setCookieHash($cookieHash)
     {
         $this->cookieHash = $cookieHash;
-    
+
         return $this;
     }
 
@@ -145,7 +166,7 @@ class LoginData
     public function setSessId($sessId)
     {
         $this->sessId = $sessId;
-    
+
         return $this;
     }
 
@@ -169,7 +190,7 @@ class LoginData
     public function setCstamp($cstamp)
     {
         $this->cstamp = $cstamp;
-    
+
         return $this;
     }
 
@@ -193,7 +214,7 @@ class LoginData
     public function setUstamp($ustamp)
     {
         $this->ustamp = $ustamp;
-    
+
         return $this;
     }
 
@@ -217,7 +238,7 @@ class LoginData
     public function setRemark($remark)
     {
         $this->remark = $remark;
-    
+
         return $this;
     }
 

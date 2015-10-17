@@ -2,124 +2,162 @@
 
 namespace Entities;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * UserData
+ *
+ * @ORM\Table(name="user_data", indexes={@ORM\Index(name="data_id", columns={"data_id"})})
+ * @ORM\Entity
  */
 class UserData
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="data_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $UserDataId;
+    private $dataId;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="record_hash", type="string", length=120, nullable=true)
      */
-    private $userHash;
+    private $recordHash;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="unique_id", type="string", length=120, nullable=true)
      */
     private $uniqueId;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="user_name", type="string", length=120, nullable=true)
      */
     private $userName;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="email_id", type="string", length=120, nullable=true)
      */
     private $emailId;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=120, nullable=true)
      */
     private $password;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=100, nullable=true)
      */
     private $firstname;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=100, nullable=true)
      */
     private $lastname;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="gender", type="string", length=20, nullable=true)
      */
     private $gender;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="dob", type="string", length=100, nullable=true)
      */
     private $dob;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="location", type="string", length=100, nullable=true)
      */
     private $location;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="timezone", type="string", length=100, nullable=true)
      */
     private $timezone;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="cstamp", type="datetime", nullable=false)
      */
-    private $cstamp;
+    private $cstamp ;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="ustamp", type="datetime", nullable=false)
      */
-    private $ustamp;
+    private $ustamp ;
 
     /**
      * @var \Entities\UserRegister
+     *
+     * @ORM\OneToOne(targetEntity="Entities\UserRegister")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="register_id", referencedColumnName="register_id", unique=true)
+     * })
      */
     private $register;
 
-
-	public function __construct() {
+    public function __construct() {
     	$this->ustamp  = new \DateTime();
     	$this->cstamp  = new \DateTime();
     }
-	
     /**
-     * Get userDataId
+     * Get dataId
      *
      * @return integer
      */
-    public function getUserDataId()
+    public function getDataId()
     {
-        return $this->UserDataId;
+        return $this->dataId;
     }
 
     /**
-     * Set userHash
+     * Set recordHash
      *
-     * @param string $userHash
+     * @param string $recordHash
      *
      * @return UserData
      */
-    public function setUserHash($userHash)
+    public function setRecordHash($recordHash)
     {
-        $this->userHash = $userHash;
-    
+        $this->recordHash = $recordHash;
+
         return $this;
     }
 
     /**
-     * Get userHash
+     * Get recordHash
      *
      * @return string
      */
-    public function getUserHash()
+    public function getRecordHash()
     {
-        return $this->userHash;
+        return $this->recordHash;
     }
 
     /**
@@ -132,7 +170,7 @@ class UserData
     public function setUniqueId($uniqueId)
     {
         $this->uniqueId = $uniqueId;
-    
+
         return $this;
     }
 
@@ -156,7 +194,7 @@ class UserData
     public function setUserName($userName)
     {
         $this->userName = $userName;
-    
+
         return $this;
     }
 
@@ -180,7 +218,7 @@ class UserData
     public function setEmailId($emailId)
     {
         $this->emailId = $emailId;
-    
+
         return $this;
     }
 
@@ -204,7 +242,7 @@ class UserData
     public function setPassword($password)
     {
         $this->password = $password;
-    
+
         return $this;
     }
 
@@ -228,7 +266,7 @@ class UserData
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
-    
+
         return $this;
     }
 
@@ -252,7 +290,7 @@ class UserData
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
-    
+
         return $this;
     }
 
@@ -276,7 +314,7 @@ class UserData
     public function setGender($gender)
     {
         $this->gender = $gender;
-    
+
         return $this;
     }
 
@@ -300,7 +338,7 @@ class UserData
     public function setDob($dob)
     {
         $this->dob = $dob;
-    
+
         return $this;
     }
 
@@ -324,7 +362,7 @@ class UserData
     public function setLocation($location)
     {
         $this->location = $location;
-    
+
         return $this;
     }
 
@@ -348,7 +386,7 @@ class UserData
     public function setTimezone($timezone)
     {
         $this->timezone = $timezone;
-    
+
         return $this;
     }
 
@@ -372,7 +410,7 @@ class UserData
     public function setCstamp($cstamp)
     {
         $this->cstamp = $cstamp;
-    
+
         return $this;
     }
 
@@ -396,7 +434,7 @@ class UserData
     public function setUstamp($ustamp)
     {
         $this->ustamp = $ustamp;
-    
+
         return $this;
     }
 
@@ -420,7 +458,7 @@ class UserData
     public function setRegister(\Entities\UserRegister $register = null)
     {
         $this->register = $register;
-    
+
         return $this;
     }
 

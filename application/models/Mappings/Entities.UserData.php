@@ -7,19 +7,19 @@ $metadata->setPrimaryTable(array(
    'name' => 'user_data',
    'indexes' => 
    array(
-   'data_id' => 
+   'user_data_id' => 
    array(
     'columns' => 
     array(
-    0 => 'data_id',
+    0 => 'user_data_id',
     ),
    ),
    ),
   ));
 $metadata->setChangeTrackingPolicy(ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT);
 $metadata->mapField(array(
-   'fieldName' => 'dataId',
-   'columnName' => 'data_id',
+   'fieldName' => 'UserDataId',
+   'columnName' => 'user_data_id',
    'type' => 'integer',
    'nullable' => false,
    'options' => 
@@ -28,9 +28,25 @@ $metadata->mapField(array(
    ),
    'id' => true,
   ));
+$metadata->mapOneToOne(array(
+		'fieldName' => 'register',
+		'targetEntity' => 'UserRegister',
+		'cascade' =>
+		array(
+		),
+		'fetch' => 2,
+		'mappedBy' => NULL,
+		'inversedBy' => NULL,
+		'nullable' => false,
+		'joinColumns' => array( 0 => array( 'name' => 'register_id',
+				'referencedColumnName' => 'register_id',
+		),
+		),
+		'orphanRemoval' => false,
+));
 $metadata->mapField(array(
-   'fieldName' => 'recordHash',
-   'columnName' => 'record_hash',
+   'fieldName' => 'userHash',
+   'columnName' => 'user_hash',
    'type' => 'string',
    'nullable' => true,
    'length' => 120,
@@ -158,7 +174,7 @@ $metadata->mapField(array(
    'nullable' => false,
    'options' => 
    array(
-   'default' => 'CURRENT_TIMESTAMP',
+ //  'default' => 'CURRENT_TIMESTAMP',
    ),
   ));
 $metadata->mapField(array(
@@ -168,23 +184,7 @@ $metadata->mapField(array(
    'nullable' => false,
    'options' => 
    array(
-   'default' => 'CURRENT_TIMESTAMP',
+//   'default' => 'CURRENT_TIMESTAMP',
    ),
   ));
 $metadata->setIdGeneratorType(ClassMetadataInfo::GENERATOR_TYPE_IDENTITY);
-$metadata->mapOneToOne(array(
-   'fieldName' => 'register',
-   'targetEntity' => 'UserRegister',
-   'cascade' => 
-   array(
-   ),
-   'fetch' => 2,
-   'mappedBy' => NULL,
-   'inversedBy' => NULL,
-	'nullable' => false,
-   'joinColumns' => array( 0 => array( 'name' => 'register_id',
-									    'referencedColumnName' => 'register_id',
-									   ),
-   						),
-   'orphanRemoval' => false,
-  ));
