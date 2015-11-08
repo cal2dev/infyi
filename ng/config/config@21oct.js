@@ -1,5 +1,5 @@
 /** APP MODULE INIT */
-var App = angular.module('predator', ['ngRoute','ngCookies','ipCookie','ngAnimate','ui-notification','ui.router','ui.bootstrap']); // ,'angular-loading-bar'
+var App = angular.module('predator', ['ngRoute','ngCookies','ipCookie','ngAnimate','ui-notification']); // ,'angular-loading-bar'
 
 /** APP RUNTIME CONFIG */
 App.run(['$rootScope','ipCookie','$location',function($rootScope,ipCookie,$location){
@@ -8,60 +8,10 @@ App.run(['$rootScope','ipCookie','$location',function($rootScope,ipCookie,$locat
 
 }]);
 
-App.config(['$routeProvider', '$locationProvider','$httpProvider','$stateProvider','$urlRouterProvider',function($routeProvider,$locationProvider,$httpProvider,$stateProvider,$urlRouterProvider){
+App.config(['$routeProvider', '$locationProvider','$httpProvider',function($routeProvider,$locationProvider,$httpProvider) {
 	$httpProvider.defaults.headers.common['App-key'] = APPKEY;
-	$urlRouterProvider.otherwise("/onBoard");
-	// Now set up the states
-	  $stateProvider
-	    .state('login', {
-	      url: "/login",
-	      controller: 'startController',
-	      templateUrl: BASE_URL+'start/login'
-	    })
-	    .state('signup', {
-	      url: "/signup",
-	      controller: 'startController',
-	      templateUrl: BASE_URL+'start/signup'
-	    })
-	    .state('onBoard', {
-	      url: "/onBoard",
-    	  controller: 'onBoardController',
-          templateUrl: BASE_URL+'onBoard/board'
-	    })
-	    .state('about', {
-	    	url: "/about",
-	    	controller: '',
-	    	templateUrl: BASE_URL+'onBoard/about'
-	    })
-	    .state('contact', {
-	    	url: "/contact",
-	    	controller: '',
-	        templateUrl: BASE_URL+'onBoard/contact'
-	    })
-   	    .state('tags', {
-   	    	url: "/tags",
-   	        controller: 'tagsController',
-   	        templateUrl: BASE_URL+'tags/tags'
-   	    })
-   	    .state('tags.details', {
-   	    	url: "/details",
-   	        controller: 'tagsController',
-   	        templateUrl: BASE_URL+'onBoard/contact'
-   	    });
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	//$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-    /*$routeProvider.when('/login', {
+    $routeProvider.when('/login', {
         controller: 'startController',
         templateUrl: BASE_URL+'start/login'
     })
@@ -85,9 +35,8 @@ App.config(['$routeProvider', '$locationProvider','$httpProvider','$stateProvide
         controller: 'tagsController',
         templateUrl: BASE_URL+'tags/tags'
     })
-    .otherwise({ controller: 'onBoardController',redirectTo: '/onBoard' });*/
+    .otherwise({ controller: 'onBoardController',redirectTo: '/onBoard' });
     
-	
     // for loading
     $httpProvider.interceptors.push('myHttpInterceptor');
 }]);

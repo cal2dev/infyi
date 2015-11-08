@@ -9,7 +9,6 @@
     <meta name="author" content="">
     <base href="<?php echo base_url()?>">
     <title>Infyi</title>
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,600,400italic' rel='stylesheet' type='text/css'>
     <!--------------------------------------------------- LIBs ---------------------------------------------------->
 
     <!-- Bootstrap Core CSS -->
@@ -41,6 +40,10 @@
     <script type="text/javascript" src="<?php echo base_url()?>assets/js/angular-cookie.js"></script>
     <script type="text/javascript" src="<?php echo base_url()?>assets/js/angular-animate.js"></script>
     <script type="text/javascript" src="<?php echo base_url()?>assets/js/angular-ui-notification.min.js"></script>
+    <!-- For nested UI Routing -->
+    <script type="text/javascript" src="<?php echo base_url()?>assets/js/angular-ui-router.js"></script>
+    <!-- For Bootsstrap UI services -->
+    <script type="text/javascript" src="<?php echo base_url()?>assets/js/ui-bootstrap-tpls-0.14.2.min.js"></script>
     <!-- <script type="text/javascript" src="<?php echo base_url()?>assets/js/loading-bar.js"></script> -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

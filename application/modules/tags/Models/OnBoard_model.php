@@ -23,7 +23,7 @@ class OnBoard_model extends CI_Model  {
    	$uiq=$cookie_data->uiq;
    	$uchash=$cookie_data->uchash;
    	
-	$ckeck_fr_valid_hash = $this->em->getRepository('Entities\LoginData')->findOneBy(array('cookieHash' => $uchash));
+	$ckeck_fr_valid_hash = $this->em->getRepository('Entities\AppLoginData')->findOneBy(array('logdCookieHash' => $uchash));
 	   if($ckeck_fr_valid_hash){
 	   	$usd=$this->get_userData($uiq);
 	   }else{
@@ -38,9 +38,9 @@ class OnBoard_model extends CI_Model  {
    public function get_userData($val){
    
    	if(ctype_digit($val)){
-   		$get_hs = $this->em->getRepository('Entities\UserData')->findOneBy(array('uniqueId' => $val));
+   		$get_hs = $this->em->getRepository('Entities\AppUserData')->findOneBy(array('regUniqueId' => $val));
    	}else{
-   		$get_hs = $this->em->getRepository('Entities\UserData')->findOneBy(array('recordHash' => $val));
+   		$get_hs = $this->em->getRepository('Entities\AppUserData')->findOneBy(array('regRecordhash' => $val));
    	}
    	
   //	\Doctrine\Common\Util\Debug::dump($get_hs);

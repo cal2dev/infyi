@@ -15,6 +15,7 @@
     <script type="text/javascript" src="<?php echo base_url()?>ng/controllers/common.js"></script>		
  	<script type="text/javascript" src="<?php echo base_url()?>ng/controllers/onBoard.js"></script>	
  	<script type="text/javascript" src="<?php echo base_url()?>ng/controllers/start.js"></script>	
+ 	<script type="text/javascript" src="<?php echo base_url()?>ng/controllers/tags.js"></script>	
  
  	
 </body>

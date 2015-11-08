@@ -89,6 +89,9 @@
                         </li>
                     </ul>
                 </li> -->
+                <li>
+                        <a href="#/tags">Tags</a>
+                </li>
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?=$u_fname.' '.$u_lname ?><b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -114,6 +117,7 @@
 	                    </li>
                     </ul>
                 </li>
+                
                 <?php }else{ ?>
                  <li>
                         <a href="#/about">About</a>

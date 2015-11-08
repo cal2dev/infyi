@@ -7,9 +7,8 @@
         <div id="page-wrapper" class="view-animate-container">
 
 			<div id="loading_view"><h1>working on it... <i class='fa fa-cog fa-spin'></i></h1></div>
-            <div class="container-fluid page {{ pageClass }}" ng-view>
-				
-            </div>
+            <!-- <div class="container-fluid page {{ pageClass }}" ng-view></div> -->
+            <div ui-view></div>
             <!-- /#page-wrapper -->
 
         </div>
